@@ -15,13 +15,16 @@ class Repos extends Component {
     .then((response) => response.json())
     .then((responseData) => {
       this.setState({repositories:responseData});
+    })
+    .catch((errors) => {
+      this.props.history.pushState(null,'/error');
     });
   }
 
   render() {
     let repos = this.state.repositories.map((repo) => (
       <li key={repo.id}>
-        <Link to={"/repos/details/"+repo.name}>{repo.name}</Link>
+        <Link to={"/repo/"+repo.name}>{repo.name}</Link>
       </li>
     ));
 
@@ -41,4 +44,4 @@ class Repos extends Component {
   }
 }
 
-export default Repos
+export default Repos;
