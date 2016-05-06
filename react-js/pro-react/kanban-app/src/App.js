@@ -1,6 +1,6 @@
 import React from 'react';
-// import KanbanBoard from './KanbanBoard';
-import {render} from 'react-dom';
+// import KanbanBoard from './KanbanBoard'
+import { render } from 'react-dom';
 import KanbanBoardContainer from './KanbanBoardContainer';
 
 // let cardsList = [
@@ -44,8 +44,8 @@ import KanbanBoardContainer from './KanbanBoardContainer';
 //     status: "done",
 //     tasks: []
 //   },
-// ];
+// ]
 
-// render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
+// render(<KanbanBoard cards={cardsList} />, document.getElementById('root'))
 
 render(<KanbanBoardContainer />, document.getElementById('root'));
