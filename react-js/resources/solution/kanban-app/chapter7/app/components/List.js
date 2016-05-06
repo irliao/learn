@@ -2,11 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import { DropTarget } from 'react-dnd';
 import Card from './Card';
 import constants from '../constants';
+import CardActionCreators from '../actions/CardActionCreators';
 
 const listTargetSpec = {
   hover(props, monitor) {
-    const draggedId = monitor.getItem().id;
-    props.cardCallbacks.updateStatus(draggedId, props.id)
+    const dragged = monitor.getItem();
+    CardActionCreators.updateCardStatus(dragged.id, props.id);
   }
 };
 
@@ -21,14 +22,7 @@ class List extends Component {
     const { connectDropTarget } = this.props;
 
     let cards = this.props.cards.map((card) => {
-      return <Card key={card.id}
-                   taskCallbacks={this.props.taskCallbacks}
-                   cardCallbacks={this.props.cardCallbacks}
-                   id={card.id}
-                   title={card.title}
-                   description={card.description}
-                   color={card.color}
-                   tasks={card.tasks} />
+      return <Card key={card.id} {...card} />
     });
 
     return connectDropTarget(
@@ -40,11 +34,8 @@ class List extends Component {
   }
 };
 List.propTypes = {
-  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(PropTypes.object),
-  taskCallbacks: PropTypes.object,
-  cardCallbacks: PropTypes.object,
   connectDropTarget: PropTypes.func.isRequired
 };
 
