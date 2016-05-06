@@ -7,7 +7,10 @@
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server --port=3030 --progress",
     "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors",
-    "test": "gulp"
+    "test": "semistandard --verbose | snazzy && node my-normal-tests-littered-with-semicolons.js",
+    "format": "semistandard-format --verbose | snazzy",
+    "format-standard": "semistandard-format -w --verbose | snazzy"
+
   },
   "devDependencies": {
     "babel-core": "~6.0.*",

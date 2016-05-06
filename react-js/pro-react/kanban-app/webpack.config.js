@@ -1,6 +1,6 @@
 module.exports = {
     entry: [
-        './src/App.js'
+        './app/stores/App.js'
     ],
     output: {
         path: __dirname,

@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import marked from 'marked'; // convert markdown to HTML
+import marked from 'marked';
 import { DragSource, DropTarget } from 'react-dnd';
-import constants from './constants';
+import constants from '../constants';
 import CheckList from './CheckList';
+import {Link} from 'react-router';
 
 let titlePropType = (props, propName, componentName) => {
   if (props[propName]) {
@@ -14,7 +15,7 @@ let titlePropType = (props, propName, componentName) => {
       );
     }
   }
-}
+};
 
 const cardDragSpec = {
   beginDrag(props) {
@@ -56,29 +57,24 @@ class Card extends Component {
   }
 
   toggleDetails() {
-    this.setState({
-      showDetails: !this.state.showDetails
-    });
+    this.setState({showDetails: !this.state.showDetails});
   }
+
 
   render() {
     const { connectDragSource, connectDropTarget } = this.props;
 
     let cardDetails;
     if (this.state.showDetails) {
-      cardDetails = ( <div className = "card__details" >
-        < span dangerouslySetInnerHTML = {
-          {
-            __html: marked(this.props.description)
-          }
-        }
-        />
-          <CheckList cardId={this.props.id}
-                     tasks={this.props.tasks}
-                     taskCallbacks={this.props.taskCallbacks} />
-        < /div>
+      cardDetails = (
+        <div className="card__details">
+          <span dangerouslySetInnerHTML={{__html:marked(this.props.description)}} />
+            <CheckList cardId={this.props.id}
+                       tasks={this.props.tasks}
+                       taskCallbacks={this.props.taskCallbacks} />
+        </div>
       );
-    };
+    }
 
     let sideColor = {
       position: 'absolute',
@@ -92,19 +88,22 @@ class Card extends Component {
 
     return connectDropTarget(connectDragSource(
       <div className="card">
-      <div style={sideColor}/>
-      <div className = { this.state.showDetails ? "card__title card__title--is-open" : "card__title" } onClick={this.toggleDetails.bind(this)}>
-        {this.props.title}
+        <div style={sideColor} />
+        <div className="card__edit"><Link to={'/edit/'+this.props.id}>✎</Link></div>
+        <div className={
+            this.state.showDetails? "card__title card__title--is-open" : "card__title"
+          } onClick={this.toggleDetails.bind(this)}>
+          {this.props.title}
+        </div>
+        <ReactCSSTransitionGroup transitionName="toggle"
+                                 transitionEnterTimeout={250}
+                                 transitionLeaveTimeout={250}>
+          {cardDetails}
+        </ReactCSSTransitionGroup>
       </div>
-      <ReactCSSTransitionGroup transitionName="toggle"
-                               transitionEnterTimeout={250}
-                               transitionLeaveTimeout={250}>
-        {cardDetails}
-      </ReactCSSTransitionGroup>
-      </div >
     ));
   }
-};
+}
 Card.propTypes = {
   id: PropTypes.number,
   title: titlePropType,
@@ -119,6 +118,4 @@ Card.propTypes = {
 
 const dragHighOrderCard = DragSource(constants.CARD, cardDragSpec, collectDrag)(Card);
 const dragDropHighOrderCard = DropTarget(constants.CARD, cardDropSpec, collectDrop)(dragHighOrderCard);
-
 export default dragDropHighOrderCard
-
