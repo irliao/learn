@@ -1,2 +1,2 @@
-# work
-Work I put in to learning each subject
+# Learn-JS
+Work I put into learning each JavaScript subject
