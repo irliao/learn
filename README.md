@@ -1,2 +1,2 @@
-# Learn-JS
-Work I put into learning each JavaScript subject
+# Learn-SWE
+Work I put into learning various Software Engineering (SWE) topics
