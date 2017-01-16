@@ -1,0 +1,20 @@
+{
+  "name": "parse-server-tutorial",
+  "description": "parse-server for parse-server-tutorial",
+  "author": "Ryan Liao",
+  "repository": "https://github.com/irliao/learn-swe/tree/master/javascript/parse",
+  "scripts": {
+    "prestart": "mongod --dbpath data --port 27017",
+    "start": "parse-server config.json",
+    "poststop": "mongo admin --eval 'db.shutdownServer()'",
+    "_comment": "scripts below this line are not ready yet",
+    "_pretest": "mongod --dbpath=/data --port 27017 --fork --logpath /dev/null",
+    "_test": "mocha test",
+    "_posttest": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
+  },
+  "dependencies": {
+    "parse": "^1.9.2",
+    "parse-server": "^2.0.0"
+  },
+  "devDependencies": {}
+}

@@ -1,2 +1,5 @@
 # Learn-SWE
-Work I put into learning various Software Engineering (SWE) topics
+
+Resouces I used to learn and practice various topics in software engineering.
+
+Please feel free to create an issue on GitHub for any question or concern.

@@ -1,0 +1,7 @@
+{
+  "appId": "lWA7z0FCvDyT7yomOBoTxyTkraI5PsI5leYnlMaG",
+  "masterKey": "HQQEHGpxqtfabtwp6kIp2uds6agaKJUFdh2M8QYA",
+  "appName": "parse-server-tutorial",
+  "cloud": "./cloud/main",
+  "databaseURI": "mongodb://127.0.0.1:27017/parse"
+}
