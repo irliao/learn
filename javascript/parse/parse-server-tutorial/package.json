@@ -4,6 +4,7 @@
   "author": "Ryan Liao",
   "repository": "https://github.com/irliao/learn-swe/tree/master/javascript/parse",
   "scripts": {
+    "postinstall": "mkdir -p data/db",
     "prestart": "mongod --dbpath data --port 27017",
     "start": "parse-server config.json",
     "poststop": "mongo admin --eval 'db.shutdownServer()'",
