@@ -1,4 +1,6 @@
-{- HW 01 -}
+{- HW 01 - Credit Card Validator -}
+
+module HW1 where
 
 {- Exercise 1 --}
 toDigits :: Integer -> [Integer]
@@ -11,12 +13,13 @@ toDigitsRev :: Integer -> [Integer]
 toDigitsRev n
   | n < 0 = []
   | n < 10 = [n]
-  | otherwise = (toDigitsRev (n `mod` 10))++ (toDigitsRev (n `div` 10))
+  | otherwise = (toDigitsRev (n `mod` 10)) ++ (toDigitsRev (n `div` 10))
 
 {- Exercise 2 --}
+-- (x:y:[])) indicates there is 2 items in the array
 doubleEveryOther :: [Integer] -> [Integer]
 doubleEveryOther [] = [] -- do nothing to empty list
-doubleEveryOther (x:[]) = [x] -- do nothing to list with single element
+doubleEveryOther (x:[]) = [x] -- do nothing to list when there is only 1 item in the array
 doubleEveryOther (x:(y:zs)) = (x) : [(y*2)] ++ doubleEveryOther zs -- ex: [1,2,3,4,5] => (1:(2:[3,4,5]), so x is HEAD, y is HEAD + 1, zs is rest of list (if exists)
 
 {- Exercise 3 --}
@@ -36,19 +39,6 @@ sumDigits (x:(y:zs)) = (sumDigitsHelper x) + (sumDigitsHelper y) + sumDigits zs
 -- validate 4012888888881882 == False
 validate :: Integer -> Bool
 validate n = ((sumDigits (doubleEveryOther (toDigitsRev n))) `mod` 10) == 0
-
-{- Exercise 5 --}
--- hanoi 2 "a" "b" "c" == [("a","c"), ("a","b"), ("c","b")]
-type Peg = String
-type Move = (Peg, Peg)
-hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
-hanoi 0 a b c = [] -- BC
-hanoi 1 a b c = [(a, b)] -- BC
-hanoi n a b c = (a, c):(hanoi (n-1) a b c)++[(c, b)] -- RC
-
-{- Exercise 6 -}
-hanoi4 :: Integer -> Peg -> Peg -> Peg->Peg -> [Move]
-hanoi4 0 a b c d = [] -- BC
 
 {- Notes -}
 {-  toDigits 
