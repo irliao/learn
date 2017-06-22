@@ -2,6 +2,7 @@
  module LogAnalysis where -- declares file as module
 
 import Log -- imports module from Log.hs
+import Data.List.Split (splitOn)
 
 {-
    error levels:
@@ -18,5 +19,7 @@ import Log -- imports module from Log.hs
 -- parseMessage "E 2 562 help help" == LogMessage (Error 2) 562 "help help"
 -- parseMessage "I 29 la la la" == LogMessage Info 29 "la la la"
 -- parseMessage "This is not in the right format" == Unknown "This is not in the right format"
-parseMessage :: String -> LogMessage
-parseMessage x = LogMessage (words x)
+
+parseMessage :: String -> [String]
+parseMessage x = splitOn " " x
+
