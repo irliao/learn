@@ -1,9 +1,11 @@
+// lambda example
 [1, 2, 3].map(x => x * 2) === [2,4,6]
 
+// map should take in an array and return a new array
 // map :: (a -> b) -> [a] -> [b]
 
+// reduce should take in an array, acculumator, and an initial vallue then apply the given function to return the acculumator
 // reduce :: (a -> b -> c) -> [a] -> b -> c
-
 
 let list = [1, 2, 3, 4, 5];
 
