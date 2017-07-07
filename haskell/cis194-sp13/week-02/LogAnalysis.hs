@@ -3,6 +3,7 @@
 
 import Log -- imports module from Log.hs
 import Data.List.Split (splitOn)
+import Data.List (intercalate)
 
 {-
    error levels:
@@ -20,6 +21,11 @@ import Data.List.Split (splitOn)
 -- parseMessage "I 29 la la la" == LogMessage Info 29 "la la la"
 -- parseMessage "This is not in the right format" == Unknown "This is not in the right format"
 
-parseMessage :: String -> [String]
-parseMessage x = splitOn " " x
+parseMessageList :: [String] -> LogMessage
+parseMessageList (a:b:c:ds) = LogMessage (Error (read b)) (read c) (intercalate " " ds)
+
+parseMessage :: String -> LogMessage
+parseMessage x = parseMessageList (splitOn " " x)
+
+
 

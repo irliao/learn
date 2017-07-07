@@ -9,7 +9,7 @@ data MessageType = Info
                  | Error Int
   deriving (Show, Eq)
 
-type TimeStamp = Int
+type TimeStamp = Int -- any Int is also type TimeStamp, ex: 100 is type Int / type TimeStamp
 
 data LogMessage = LogMessage MessageType TimeStamp String -- constructor 1 for formatted log message
                 | Unknown String -- constructor 2 for anything else that does not fit with proper format
