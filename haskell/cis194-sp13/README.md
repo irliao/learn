@@ -1,8 +1,11 @@
 # Haskell
 
 ## Installation
-stack
-
-## Run
 ```bash
+brew install haskell-stack
+```
 
+## Run REPL
+```bash
+stack ghci
+```

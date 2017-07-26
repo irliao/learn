@@ -13,4 +13,4 @@ skips [] = []
 skips (x:[]) = [[x]]
 skips (x:(y:zs)) = [ (x:y:zs), zip (x:y:zs) [1..] ]
 
- 
+ zip [1..(length a)] (replicate (length a) a)
