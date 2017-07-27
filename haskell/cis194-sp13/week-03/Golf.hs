@@ -10,7 +10,15 @@ module Golf where
 -- skips []           == []
 skips :: [a] -> [[a]]
 skips [] = []
-skips (x:[]) = [[x]]
-skips (x:(y:zs)) = [ (x:y:zs), zip (x:y:zs) [1..] ]
+-- skips (x:[]) = [[x]]
+skips xs = map f (zip [1..(length xs)] (replicate (length xs) xs))
+              -- where f y = [fst y]
+              where f (y,z) = z
 
- zip [1..(length a)] (replicate (length a) a)
+
+-- map f xs where f (a,b) = 
+
+-- foldr
+-- let f acc b = (acc + b) in foldl f 0 [1,2,3,4,5] 
+-- let f = (+) in foldl f 0 [1,2,3,4,5]
+-- foldl (+) 0 [1,2,3,4,5]

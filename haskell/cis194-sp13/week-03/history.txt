@@ -1,0 +1,342 @@
+*Golf> :l Golf.hs
+[1 of 1] Compiling Golf             ( Golf.hs, interpreted )
+
+Golf.hs:14:11: error:
+    • Couldn't match type ‘a’ with ‘Int’
+      ‘a’ is a rigid type variable bound by
+        the type signature for:
+          skips :: forall a. [a] -> [[a]]
+        at Golf.hs:11:10
+      Expected type: [[a]]
+        Actual type: [[Int]]
+    • In the expression:
+        map f (zip [1 .. (length x)] (replicate (length x) x))
+      In an equation for ‘skips’:
+          skips x
+            = map f (zip [1 .. (length x)] (replicate (length x) x))
+            where
+                f (y, z) = [y]
+    • Relevant bindings include
+        x :: [a] (bound at Golf.hs:14:7)
+        skips :: [a] -> [[a]] (bound at Golf.hs:12:1)
+Failed, modules loaded: none.
+Prelude> :l Golf.hs
+[1 of 1] Compiling Golf             ( Golf.hs, interpreted )
+
+Golf.hs:14:13: error:
+    • Couldn't match type ‘a’ with ‘Int’
+      ‘a’ is a rigid type variable bound by
+        the type signature for:
+          skips :: forall a. [a] -> [[a]]
+        at Golf.hs:11:10
+      Expected type: [[a]]
+        Actual type: [[Int]]
+    • In the expression:
+        map f (zip [1 .. (length x)] (replicate (length x) x))
+      In an equation for ‘skips’:
+          skips [x]
+            = map f (zip [1 .. (length x)] (replicate (length x) x))
+            where
+                f (y, z) = [y]
+    • Relevant bindings include
+        x :: a (bound at Golf.hs:14:8)
+        skips :: [a] -> [[a]] (bound at Golf.hs:12:1)
+Failed, modules loaded: none.
+Prelude> :l Golf.hs
+[1 of 1] Compiling Golf             ( Golf.hs, interpreted )
+
+Golf.hs:14:13: error:
+    • Couldn't match type ‘a’ with ‘Int’
+      ‘a’ is a rigid type variable bound by
+        the type signature for:
+          skips :: forall a. [a] -> [[a]]
+        at Golf.hs:11:10
+      Expected type: [[a]]
+        Actual type: [[Int]]
+    • In the expression:
+        map f (zip [1 .. (length x)] (replicate (length x) x))
+      In an equation for ‘skips’:
+          skips [x]
+            = map f (zip [1 .. (length x)] (replicate (length x) x))
+            where
+                f (y, z) = [y]
+    • Relevant bindings include
+        x :: a (bound at Golf.hs:14:8)
+        skips :: [a] -> [[a]] (bound at Golf.hs:12:1)
+Failed, modules loaded: none.
+Prelude> :l Golf.hs
+[1 of 1] Compiling Golf             ( Golf.hs, interpreted )
+
+Golf.hs:14:12: error:
+    • Couldn't match type ‘a’ with ‘Int’
+      ‘a’ is a rigid type variable bound by
+        the type signature for:
+          skips :: forall a. [a] -> [[a]]
+        at Golf.hs:11:10
+      Expected type: [[a]]
+        Actual type: [[Int]]
+    • In the expression:
+        map f (zip [1 .. (length xs)] (replicate (length xs) xs))
+      In an equation for ‘skips’:
+          skips xs
+            = map f (zip [1 .. (length xs)] (replicate (length xs) xs))
+            where
+                f (y, z) = [y]
+    • Relevant bindings include
+        xs :: [a] (bound at Golf.hs:14:7)
+        skips :: [a] -> [[a]] (bound at Golf.hs:12:1)
+Failed, modules loaded: none.
+Prelude> :l Golf.hs
+[1 of 1] Compiling Golf             ( Golf.hs, interpreted )
+
+Golf.hs:14:12: error:
+    • Couldn't match type ‘a’ with ‘(Int, [a])’
+      ‘a’ is a rigid type variable bound by
+        the type signature for:
+          skips :: forall a. [a] -> [[a]]
+        at Golf.hs:11:10
+      Expected type: [[a]]
+        Actual type: [[(Int, [a])]]
+    • In the expression:
+        map f (zip [1 .. (length xs)] (replicate (length xs) xs))
+      In an equation for ‘skips’:
+          skips xs
+            = map f (zip [1 .. (length xs)] (replicate (length xs) xs))
+            where
+                f x = [x]
+    • Relevant bindings include
+        xs :: [a] (bound at Golf.hs:14:7)
+        skips :: [a] -> [[a]] (bound at Golf.hs:12:1)
+Failed, modules loaded: none.
+Prelude> :l Golf.hs
+[1 of 1] Compiling Golf             ( Golf.hs, interpreted )
+
+Golf.hs:14:12: error:
+    • Couldn't match type ‘a’ with ‘[a]’
+      ‘a’ is a rigid type variable bound by
+        the type signature for:
+          skips :: forall a. [a] -> [[a]]
+        at Golf.hs:11:10
+      Expected type: [[a]]
+        Actual type: [[[a]]]
+    • In the expression:
+        map f (zip [1 .. (length x)] (replicate (length xs) xs))
+      In an equation for ‘skips’:
+          skips xs
+            = map f (zip [1 .. (length x)] (replicate (length xs) xs))
+            where
+                f (y, z) = [z]
+    • Relevant bindings include
+        xs :: [a] (bound at Golf.hs:14:7)
+        skips :: [a] -> [[a]] (bound at Golf.hs:12:1)
+
+Golf.hs:14:35: error: Variable not in scope: x :: t0 a0
+Failed, modules loaded: none.
+Prelude> :l Golf.hs
+[1 of 1] Compiling Golf             ( Golf.hs, interpreted )
+
+Golf.hs:14:12: error:
+    • Couldn't match type ‘a’ with ‘[a]’
+      ‘a’ is a rigid type variable bound by
+        the type signature for:
+          skips :: forall a. [a] -> [[a]]
+        at Golf.hs:11:10
+      Expected type: [[a]]
+        Actual type: [[[a]]]
+    • In the expression:
+        map f (zip [1 .. (length x)] (replicate (length xs) xs))
+      In an equation for ‘skips’:
+          skips xs
+            = map f (zip [1 .. (length x)] (replicate (length xs) xs))
+            where
+                f (y, z) = [z]
+    • Relevant bindings include
+        xs :: [a] (bound at Golf.hs:14:7)
+        skips :: [a] -> [[a]] (bound at Golf.hs:12:1)
+
+Golf.hs:14:35: error: Variable not in scope: x :: t0 a0
+Failed, modules loaded: none.
+Prelude> :l Golf.hs
+[1 of 1] Compiling Golf             ( Golf.hs, interpreted )
+
+Golf.hs:14:12: error:
+    • Couldn't match type ‘a’ with ‘[a]’
+      ‘a’ is a rigid type variable bound by
+        the type signature for:
+          skips :: forall a. [a] -> [[a]]
+        at Golf.hs:11:10
+      Expected type: [[a]]
+        Actual type: [[[a]]]
+    • In the expression:
+        map f (zip [1 .. (length xs)] (replicate (length xs) xs))
+      In an equation for ‘skips’:
+          skips xs
+            = map f (zip [1 .. (length xs)] (replicate (length xs) xs))
+            where
+                f (y, z) = [z]
+    • Relevant bindings include
+        xs :: [a] (bound at Golf.hs:14:7)
+        skips :: [a] -> [[a]] (bound at Golf.hs:12:1)
+Failed, modules loaded: none.
+Prelude> :l Golf.hs
+[1 of 1] Compiling Golf             ( Golf.hs, interpreted )
+Ok, modules loaded: Golf.
+*Golf>
+*Golf>
+*Golf>
+*Golf>
+*Golf>
+*Golf>
+*Golf> :l Golf.hs
+[1 of 1] Compiling Golf             ( Golf.hs, interpreted )
+Ok, modules loaded: Golf.
+*Golf> skips "abcd"
+["abcd","abcd","abcd","abcd"]
+*Golf>
+*Golf>
+*Golf> foldr
+foldr   foldr1
+*Golf> foldl (x > 3) [] [1,2,3,4,5]
+
+<interactive>:39:8: error: Variable not in scope: x :: Integer
+
+<interactive>:39:8: error:
+    • Couldn't match expected type ‘[t] -> Integer -> [t]’
+                  with actual type ‘Bool’
+    • Possible cause: ‘(>)’ is applied to too many arguments
+      In the first argument of ‘foldl’, namely ‘(x > 3)’
+      In the expression: foldl (x > 3) [] [1, 2, 3, 4, ....]
+      In an equation for ‘it’: it = foldl (x > 3) [] [1, 2, 3, ....]
+    • Relevant bindings include it :: [t] (bound at <interactive>:39:1)
+*Golf> foldl \x -> x < 3 [] [1,2,3,4,5]
+
+<interactive>:40:7: error: parse error on input ‘\’
+*Golf> foldl (\x -> (x < 3)) [] [1,2,3,4,5]
+
+<interactive>:41:15: error:
+    • Couldn't match expected type ‘Integer -> [t]’
+                  with actual type ‘Bool’
+    • Possible cause: ‘(<)’ is applied to too many arguments
+      In the expression: (x < 3)
+      In the first argument of ‘foldl’, namely ‘(\ x -> (x < 3))’
+      In the expression: foldl (\ x -> (x < 3)) [] [1, 2, 3, 4, ....]
+    • Relevant bindings include
+        x :: [t] (bound at <interactive>:41:9)
+        it :: [t] (bound at <interactive>:41:1)
+*Golf>
+*Golf>
+*Golf> foldl (\x -> (x < 3)) [] [1,2,3,4,5]
+
+<interactive>:44:15: error:
+    • Couldn't match expected type ‘Integer -> [t]’
+                  with actual type ‘Bool’
+    • Possible cause: ‘(<)’ is applied to too many arguments
+      In the expression: (x < 3)
+      In the first argument of ‘foldl’, namely ‘(\ x -> (x < 3))’
+      In the expression: foldl (\ x -> (x < 3)) [] [1, 2, 3, 4, ....]
+    • Relevant bindings include
+        x :: [t] (bound at <interactive>:44:9)
+        it :: [t] (bound at <interactive>:44:1)
+*Golf> foldl (x -> x < 3) [] [1,2,3,4,5]
+
+<interactive>:45:8: error:
+    Pattern syntax in expression context: x -> x < 3
+*Golf> foldl (x < 3 -> x) [] [1,2,3,4,5]
+
+<interactive>:46:8: error:
+    Pattern syntax in expression context: x < 3 -> x
+*Golf> foldl (x < 3 [1,2,3,4,5]
+
+<interactive>:47:25: error:
+    parse error (possibly incorrect indentation or mismatched brackets)
+*Golf> foldl (x < 3) [] [1,2,3,4,5]
+
+<interactive>:48:8: error: Variable not in scope: x :: Integer
+
+<interactive>:48:8: error:
+    • Couldn't match expected type ‘[t] -> Integer -> [t]’
+                  with actual type ‘Bool’
+    • Possible cause: ‘(<)’ is applied to too many arguments
+      In the first argument of ‘foldl’, namely ‘(x < 3)’
+      In the expression: foldl (x < 3) [] [1, 2, 3, 4, ....]
+      In an equation for ‘it’: it = foldl (x < 3) [] [1, 2, 3, ....]
+    • Relevant bindings include it :: [t] (bound at <interactive>:48:1)
+*Golf> foldl (< 3) [] [1,2,3,4,5]
+
+<interactive>:49:8: error:
+    • Couldn't match type ‘Bool’ with ‘Integer -> [t]’
+      Expected type: [t] -> Integer -> [t]
+        Actual type: [t] -> Bool
+    • In the first argument of ‘foldl’, namely ‘(< 3)’
+      In the expression: foldl (< 3) [] [1, 2, 3, 4, ....]
+      In an equation for ‘it’: it = foldl (< 3) [] [1, 2, 3, ....]
+    • Relevant bindings include it :: [t] (bound at <interactive>:49:1)
+*Golf> foldl (< 3) [1,2,3,4,5] []
+
+<interactive>:50:8: error:
+    • Couldn't match type ‘Bool’ with ‘a0 -> [t]’
+      Expected type: [t] -> a0 -> [t]
+        Actual type: [t] -> Bool
+    • In the first argument of ‘foldl’, namely ‘(< 3)’
+      In the expression: foldl (< 3) [1, 2, 3, 4, ....] []
+      In an equation for ‘it’: it = foldl (< 3) [1, 2, 3, ....] []
+    • Relevant bindings include it :: [t] (bound at <interactive>:50:1)
+*Golf> foldl (< 3) [] [1,2,3,4,5]
+
+<interactive>:51:8: error:
+    • Couldn't match type ‘Bool’ with ‘Integer -> [t]’
+      Expected type: [t] -> Integer -> [t]
+        Actual type: [t] -> Bool
+    • In the first argument of ‘foldl’, namely ‘(< 3)’
+      In the expression: foldl (< 3) [] [1, 2, 3, 4, ....]
+      In an equation for ‘it’: it = foldl (< 3) [] [1, 2, 3, ....]
+    • Relevant bindings include it :: [t] (bound at <interactive>:51:1)
+*Golf> filter (< 3) [] [1,2,3,4,5]
+
+<interactive>:52:1: error:
+    • Couldn't match expected type ‘[Integer] -> t’
+                  with actual type ‘[Integer]’
+    • The function ‘filter’ is applied to three arguments,
+      but its type ‘(Integer -> Bool) -> [Integer] -> [Integer]’
+      has only two
+      In the expression: filter (< 3) [] [1, 2, 3, 4, ....]
+      In an equation for ‘it’: it = filter (< 3) [] [1, 2, 3, ....]
+    • Relevant bindings include it :: t (bound at <interactive>:52:1)
+*Golf> filter (< 3) [1,2,3,4,5]
+[1,2]
+*Golf> foldl f [] [1,2,3,4,5] where f acc n = acc
+
+<interactive>:54:24: error: parse error on input ‘where’
+*Golf> foldl f [] [1,2,3,4,5]
+
+<interactive>:55:7: error:
+    Variable not in scope: f :: [t] -> Integer -> [t]
+*Golf> let f a b = a in foldl f [] [1,2,3,4,5]
+[]
+*Golf> let f a b = a ++ b in foldl f [] [1,2,3,4,5]
+
+<interactive>:57:1: error:
+    • Non type-variable argument in the constraint: Num [a]
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        it :: forall a. Num [a] => [a]
+*Golf> let f a b = a in foldl f [] [1,2,3,4,5]
+[]
+*Golf> let f a b = [b] in foldl f [] [1,2,3,4,5]
+[5]
+*Golf> let f acc b = acc + b in foldl f [] [1,2,3,4,5]
+
+<interactive>:60:1: error:
+    • Non type-variable argument in the constraint: Num [t]
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        it :: forall t. Num [t] => [t]
+*Golf> foldl (+) 0 [1,2,3,4,5]
+15
+*Golf> let f = (+) in foldl f 0 [1,2,3,4,5]
+15
+*Golf> let f acc b = (acc + b) in foldl f 0 [1,2,3,4,5]
+15
+*Golf>
+*Golf>
+*Golf>
