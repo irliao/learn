@@ -11,7 +11,8 @@ module Golf where
 -- TODO: ask brian and nikhil how to shorten this
 skips :: [a] -> [[a]]
 skips [] = []
-skips xs = map f (zip [1..(length xs)] (replicate (length xs) xs)) where f (y,z) = foldl (\acc x -> if mod (fst x) y == 0 then acc ++ [(snd x)] else acc) [] (zip [1..(length z)] z)
+skips xs = map f (zip [1..(length xs)] (replicate (length xs) xs)) 
+  where f (y,z) = foldl (\acc x -> if mod (fst x) y == 0 then acc ++ [(snd x)] else acc) [] (zip [1..(length z)] z)
 
 -- skips x = map f (zip [1..(length x)] (replicate (length x) x)) where f (y,z) = foldl (\a x -> if mod (fst x) y == 0 then a ++ [(snd x)] else a) [] (zip [1..(length z)] z), l = length
 --   -- where f (y,z) = foldl (\[M D/a x -> if mod (fst x) y == 0 then a ++ [(snd x)] else a) [] (zip [1..(length z)] z)
