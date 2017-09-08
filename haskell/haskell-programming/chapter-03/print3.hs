@@ -7,5 +7,14 @@ myGreeting = "hello" ++ " world!"
 -- Could also be: "hello" ++ " " ++ "world!"
 -- to obtain the same result.
 
-hello : String
+hello :: String
 hello = "hello"
+
+world :: String
+world = "world!"
+
+main :: IO ()
+main = do
+  putStrLn myGreeting
+  putStrLn secondGreeting
+    where secondGreeting = concat [hello, " ", world]
