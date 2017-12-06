@@ -6,7 +6,7 @@ package chapter_02;
 
 class Exercise {
   // same as importing Function from Java lib
-  public interface Function<T, U> {
+  interface Function<T, U> {
     U apply(T arg);
   }
 
@@ -48,14 +48,23 @@ class Exercise {
   static Function<Integer, Function<Integer, Integer>> add = x -> y -> x + y;
 
   // using inheritance to extend it with shorter identifier
-  public interface BinaryOperator extends
-                       Function<Integer, Function<Integer, Integer>> {}
-  BinaryOperator add1 = x -> y -> x + y;
-  BinaryOperator mult = x -> y -> x * y;
+  interface BinaryOperator extends Function<Integer, Function<Integer, Integer>> {}
+  static BinaryOperator add1 = x -> y -> x + y;
+  static BinaryOperator mult = x -> y -> x * y;
+
+  // Exercise 2.4 - write a function to compose square and triple
+  // (Integer -> Integer) -> ((Integer -> Integer) -> (Integer -> Integer))
+  static Function<Function<Integer, Integer>,
+           Function<Function<Integer, Integer>,
+                    Function<Integer, Integer>>> compose2 = x -> y -> z -> x.apply(y.apply(z));
 
   public static void main(String... args) {
     System.out.println(compose(triple, square).apply(3)); // 27
     System.out.println(compose1(triple, square).apply(3)); // 27
+
     System.out.println(add.apply(1).apply(2)); // 3
+    System.out.println(add1.apply(1).apply(2)); // 3
+
+    // TODO: call funciton from 2.4
   }
 }
