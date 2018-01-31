@@ -57,15 +57,29 @@ area d = pi * (r * r)
 
 -- 1a) "Curry is awesome" -> "Curry is awesome!"
 addExclamation :: String -> String
-addExclamation a = a ++ "!"
+addExclamation x = x ++ "!"
 
 -- 1b) "Curry is awesome!" -> "y"
 getYBad :: String -> Char
-getYBad a = a !! 4 -- bad because !! is unsafe operation
+getYBad x = x !! 4 -- bad because !! is unsafe operation
 
 getYBetter :: String -> Char
-getYBetter a = head (drop 4 a) -- not good because still can cause exception
+getYBetter x = head (drop 4 x) -- not good because still can cause exception
 
 -- 1c) "Curry is awesome!" -> "awesome!"
 getAwesomeBad :: String -> String
-getAwesomeBad a = drop 9 a -- good because does not cause exception
+getAwesomeBad x = drop 9 x -- good because does not cause exception
+
+-- 2) same as 1a,1b,1c
+
+-- 3) "Curry is awesome!" -> 'r'
+thirdLetter :: String -> Char
+thirdLetter x = x !! 2
+
+-- 4) 4 -> "Curry is awesome!" -> 'r'
+letterIndex :: Int -> Char
+letterIndex x =  "Curry is awesome!" !! (x - 1)
+
+-- 5) "Curry is awesome" -> "awesome is Curry"
+rvrs :: String -> String
+rvrs x = drop 9 x ++ " " ++ (take 2 (drop 6 x)) ++ " " ++ take 5 x
