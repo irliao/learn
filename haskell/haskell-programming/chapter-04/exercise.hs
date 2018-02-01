@@ -1,5 +1,15 @@
 module Exercise where
 
+-- Tuple Examples
+fst' :: (a, b) -> a
+fst' (a, b) = a
+
+snd' :: (a, b) -> b
+snd' (a, b) = b
+
+topFunc :: (Int, [a]) -> (Int, [a]) -> (Int, [a])
+topFunc (a, b) (c, d) = ((a + c), (b ++ d))
+
 -- Exercise: Mood Swing
 data Mood = Blah | Woot deriving Show
 -- 1) type constructor is Mood, name of this type is Mood
@@ -62,4 +72,9 @@ getFst (a, b) = a
 -- 2. type of (==) is: Eq a => a -> a -> Bool
 -- 3. type of fst is: (a, b) -> a
 -- 4. type of (+) is: Num a => a -> a -> a
--- 5. 
+
+-- 4.10 Definitions
+type Name = String -- type alias
+data Pet = Cat | Dog Name deriving Show
+-- :t Cat => Pet
+-- :t Dog => Name -> Pet

@@ -10,5 +10,3 @@ greetIfCool coolness =
   where cool =
           coolness == "downright frosty yo" -- indentation intented... otherwise compile error
 
-
-

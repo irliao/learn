@@ -18,6 +18,10 @@ $ :t - takes function and prints the type signatures (references to the type con
 type classes are like abstract classes (???? need to confirm this) in Java since they add reusable functionality to all types that have instances of that typeclass
 ex. Integer and Double types have instance of Num typeclass, allowing (+) (-), and (*) operators
 
+## Types
+type constructor are NOT values and can only be used in type signatures
+data declaration generates new type constructors (but may or may not create new data constructor)
+
 ## Integral
 Int (cannot be arbitrarily large/small) and Integer (can be arbitrarily large/small) are different
 most cases should use Integer
@@ -43,3 +47,7 @@ type constructs used in signatures are same as your values (note a,b are not cap
 ex. fst' :: (a, b) -> a
     fst' (a,b) = a
 generally do not use tuple of more than 5 arity
+
+## Polymorphism
+parametric - works for all types (ex. id)
+constrained - works for set of types (ex. isEqual, which requires instance of Eq typeclass)
