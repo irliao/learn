@@ -14,7 +14,7 @@
     "_posttest": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
   },
   "dependencies": {
-    "parse-server": "^2.0.0"
+    "parse-server": "^4.1.0"
   },
   "devDependencies": {}
 }
