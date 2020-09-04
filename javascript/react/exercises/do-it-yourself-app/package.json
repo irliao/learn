@@ -13,6 +13,6 @@
       "webpack-dev-server": "^1.10.*"
   },
   "dependencies": {
-      "react": "^0.13.*"
+      "react": "^16.13.*"
   }
 }
